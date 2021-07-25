@@ -74,4 +74,7 @@ client.on( 'message', msg => {
 	if (command === 'reactions') {
 		client.commands.get('reactions').execute(msg, args, Discord, client);
 	};
+	if (command === 'projectcityrp') {
+		client.commands.get('projectcityrp').execute(msg, args);
+	};
 });
