@@ -45,7 +45,7 @@ client.on( 'message', msg => {
 	const commandBody = msg.content.slice(prefix.length);
 	const args = commandBody.split(' ');
 	const command = args.shift().toLowerCase();
-	const botchannel = '697975823415902278';
+	//const botchannel = '697975823415902278';
 	/*if ( command === 'pingg' ) {
 		client.commands.get('ping').execute(msg, args);
 	};
@@ -62,19 +62,20 @@ client.on( 'message', msg => {
 	if (command === 'radd') {
 		client.commands.get('radd').execute(msg, args);
 	};*/
-	if (command === 'awesome') {
-		client.commands.get('awesome').execute(msg, args);
-	};
-	if (command === 'roles') {
-		client.commands.get('roles').execute(msg, args);
-	};
-	/*if (command === 'startmsg') {
-		client.commands.get('startmsg').execute(msg, args);
-	};*/
-	if (command === 'reactions') {
-		client.commands.get('reactions').execute(msg, args, Discord, client);
-	};
-	if (command === 'projectcityrp') {
-		client.commands.get('projectcityrp').execute(msg, args);
-	};
+	client.commands.get(`${command}`).execute(msg, args);
+	// if (command === 'awesome') {
+	// 	client.commands.get('awesome').execute(msg, args);
+	// };
+	// if (command === 'roles') {
+	// 	client.commands.get('roles').execute(msg, args);
+	// };
+	// if (command === 'startmsg') {
+	// 	client.commands.get('startmsg').execute(msg, args);
+	// };
+	// if (command === 'reactions') {
+	// 	client.commands.get('reactions').execute(msg, args);
+	// };
+	// if (command === 'projectcityrp') {
+	// 	client.commands.get('projectcityrp').execute(msg, args);
+	// };
 });

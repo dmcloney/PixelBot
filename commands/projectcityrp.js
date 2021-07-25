@@ -7,7 +7,7 @@ module.exports = {
 
     async execute(msg, args) {
         server.getPlayersOnline().then((res) => {
-            msg.channel.send(`${res}`).catch(console.error);
+            msg.channel.send("Connected to the Project City RP Server, Players Online: " + `${res}`).catch(console.error);
             console.log("Connected to the Project City RP Server, Players Online: " + res)
         });
     }
