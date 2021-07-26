@@ -63,7 +63,7 @@ client.on( 'message', msg => {
 		client.commands.get('radd').execute(msg, args);
 	};*/
 
-	//client.commands.get(`${command}`).execute(msg, args);
+	//client.commands.get(`${command}`).execute(msg, args); <- MASS COMMANDS
 	
 	// if (command === 'awesome') {
 	// 	client.commands.get('awesome').execute(msg, args);
