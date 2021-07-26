@@ -4,7 +4,8 @@ module.exports = {
 	name: 'reactions',
 	description: "Responds with you are awesome!",
 
-	async execute(msg, args) {
+	async execute(msg, args, Discord, client) {
+		try {
 		const channel = '803037517939081227';
 		const consoleRole = msg.guild.roles.cache.find(role => role.name === "Console");
 		const PCRole = msg.guild.roles.cache.find(role => role.name === "PC");
@@ -19,7 +20,7 @@ module.exports = {
 			.addFields(
 				{ name: 'What do you play on?', value: '🎮 ➤ Console\n⌨️ ➤ PC' },
 				{ name: 'You can also get these roles:', value: '👮‍♂️ ➤ Project City RP' },
-				{ name: '\u200B', value: 'If you want to remove a role and haven\'t reacted yet, just react the the role and remove your reaction.' },
+				{ name: '\u200B', value: 'If you want to remove a role and haven\'t reacted yet, just react with the related emoji and remove your reaction.' },
 			)
 
 			.setImage('https://i.stack.imgur.com/Fzh0w.png')
@@ -80,5 +81,8 @@ module.exports = {
 				return;
 			}
 		});
+	} catch (error) {
+		console.log(error);
+	};
 	}
 }

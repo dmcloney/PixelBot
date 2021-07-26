@@ -62,7 +62,9 @@ client.on( 'message', msg => {
 	if (command === 'radd') {
 		client.commands.get('radd').execute(msg, args);
 	};*/
-	client.commands.get(`${command}`).execute(msg, args);
+
+	//client.commands.get(`${command}`).execute(msg, args);
+	
 	// if (command === 'awesome') {
 	// 	client.commands.get('awesome').execute(msg, args);
 	// };
@@ -72,9 +74,9 @@ client.on( 'message', msg => {
 	// if (command === 'startmsg') {
 	// 	client.commands.get('startmsg').execute(msg, args);
 	// };
-	// if (command === 'reactions') {
-	// 	client.commands.get('reactions').execute(msg, args);
-	// };
+	 if (command === 'reactions') {
+	 	client.commands.get('reactions').execute(msg, args, Discord, client);
+	 } else {client.commands.get(`${command}`).execute(msg, args);};
 	// if (command === 'projectcityrp') {
 	// 	client.commands.get('projectcityrp').execute(msg, args);
 	// };
