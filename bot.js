@@ -30,16 +30,18 @@ client.on('ready', () => {
 	console.log(`Client ID is ${client.user.id}`);
 	console.log('Bot Launched...');
 	client.user.setActivity("on Pixel's Computer", { type: 'STREAMING', url: 'https://twitch.tv/pixelgalaxxyy' }); //Telling the bot to say it is streaming
-//
-	client.api.applications(client.user.id).commands.post({data: {
-		name: 'ping',
-		description: 'ping pong!'
-	}});
-//
+	//
+	client.api.applications(client.user.id).commands.post({
+		data: {
+			name: 'ping',
+			description: 'ping pong!'
+		}
+	});
+	//
 });
 
 
-client.on( 'message', msg => {
+client.on('message', msg => {
 	if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
 	const commandBody = msg.content.slice(prefix.length);
@@ -64,7 +66,7 @@ client.on( 'message', msg => {
 	};*/
 
 	//client.commands.get(`${command}`).execute(msg, args); <- MASS COMMANDS
-	
+
 	// if (command === 'awesome') {
 	// 	client.commands.get('awesome').execute(msg, args);
 	// };
@@ -74,9 +76,11 @@ client.on( 'message', msg => {
 	// if (command === 'startmsg') {
 	// 	client.commands.get('startmsg').execute(msg, args);
 	// };
-	 if (command === 'reactions') {
-	 	client.commands.get('reactions').execute(msg, args, Discord, client);
-	 } else {client.commands.get(`${command}`).execute(msg, args);};
+	const runnable = client.commands.get(command);
+
+	if (runnable) {
+		runnable.execute(msg, args);
+	}
 	// if (command === 'projectcityrp') {
 	// 	client.commands.get('projectcityrp').execute(msg, args);
 	// };

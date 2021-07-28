@@ -4,7 +4,7 @@ module.exports = {
 	name: 'reactions',
 	description: "Responds with you are awesome!",
 
-	async execute(msg, args, Discord, client) {
+	async execute(msg, args) {
 		try {
 		const channel = '803037517939081227';
 		const consoleRole = msg.guild.roles.cache.find(role => role.name === "Console");
@@ -31,7 +31,7 @@ module.exports = {
 		msgembed.react(pcemoji);
 		msgembed.react(prcrpemoji);
 
-		client.on('messageReactionAdd', async (reaction, user) => {
+		msg.client.on('messageReactionAdd', async (reaction, user) => {
 			// When a reaction is received, check if the structure is partial
 			if (reaction.message.partial) await reaction.message.fetch();
 			if (reaction.partial) await reaction.fetch();
@@ -56,7 +56,7 @@ module.exports = {
 				return;
 			}
 		});
-		client.on('messageReactionRemove', async (reaction, user) => {
+		msg.client.on('messageReactionRemove', async (reaction, user) => {
 			// When a reaction is received, check if the structure is partial
 			if (reaction.message.partial) await reaction.message.fetch();
 			if (reaction.partial) await reaction.fetch();
