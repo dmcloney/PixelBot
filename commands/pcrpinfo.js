@@ -3,6 +3,7 @@ module.exports = {
 	description: "Puts a message in PCRPInfo Chat on Farva's Server",
 
 	execute(msg, args) {
+		if (!msg.author.hasPermission("ADMINISTRATOR")) return msg.reply("You do not have the permissions to use this command!"); {
 		if (!args.length) {
 			return msg.channel.send(`Please provide an argument:\n-info\n-commands\nhelp`);
 		} else if (args[0] === 'info') {
@@ -25,5 +26,5 @@ module.exports = {
 			return;
 		}
 	}
-
+	}
 }
